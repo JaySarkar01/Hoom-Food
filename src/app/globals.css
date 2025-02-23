@@ -1,3 +1,15 @@
+@import '@fontsource/rubik-glitch';
+@import '@fontsource/rampart-one';
+@import '@fontsource/mystery-quest';
+@import '@fontsource/barriecito';
+@import '@fontsource/eater';
+@import '@fontsource/erica-one';
+@import '@fontsource/faster-one';
+@import '@fontsource/bungee-spice';
+@import '@fontsource/frijole';
+@import '@fontsource/kranky';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Montserrat:wght@400;700&family=DM+Sans:wght@400;700&family=Raleway:wght@400;700&family=Nunito:wght@400;700&family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

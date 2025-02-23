@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import Demo from "@/app/pages/foods";
+import { FaArrowRight } from "react-icons/fa";
 export default function HeroSection() {
   const texts = [
-    <>Savor flavors, <span className="text-red-500">indulge bliss</span></>,
-    <>A symphony of taste, crafted with passion <Image src="/img/banner-txt-img.jpg" alt="Icon" width={120} height={120} className="inline rounded-full" /> perfection.</>,
-    <>Every bite tells a <Image src="/img/banner-txt-img.jpg" alt="Icon" width={120} height={120} className="inline rounded-full" /> delicious story.</>,
+    <>
+      Savor rich flavors, indulge in pure bliss today.
+    </>,
+    <> 
+   A symphony of taste, crafted with passion perfection.
+  </>,
+  <> 
+    Every bite tells a delicious story.
+  </>
+  
   ];
 
   const [index, setIndex] = useState(0);
@@ -18,85 +26,108 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="mt-7 flex flex-col min-h-screen">
+    <div className="mt-3 flex flex-col min-h-screen pt-24">
       {/* Main Content Section */}
       <main className="flex flex-col justify-between min-h-screen">
         {/* Hero Section */}
-        <section className="relative flex flex-col md:flex-row justify-between items-center bg-amber-100">
-          {/* Background Images */}
-          <div className="absolute top-0 right-0 w-[20%] h-[20%] bg-[url('/img/banner-vector-3.png')] bg-no-repeat bg-contain"></div>
-          <div className="absolute top-0 left-0 w-[25%] h-[25%] bg-[url('/img/banner-vector-1.png')] bg-no-repeat bg-contain animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-[20%] h-[20%] bg-[url('/img/banner-vector-2.png')] bg-no-repeat bg-contain animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-[20%] h-[20%] bg-[url('/img/banner-vector-3.png')] bg-no-repeat bg-contain"></div>
-          {/* Shuffling Text Section */}
-          <div className="justify-center items-center p-6 flex-1 text-center md:text-left space-y-7 order-2 md:order-1">
-            <span className="text-red-500">Good Food, Good Mood. </span>
-            <div className="relative h-[80px] md:h-[100px] flex items-center">
-              {texts.map((text, i) => (
-                <h1
-                  key={i}
-                  className={`absolute w-full text-3xl md:text-5xl font-bold text-gray-800 transition-opacity duration-500 ${
-                    i === index ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  {text}
-                </h1>
-              ))}
-            </div>
-            <p className="text-gray-600 max-w-md">
-              Order now and experience the best taste with premium quality.
-            </p>
-            <button className="bg-red-600 text-white px-6 py-3 rounded-lg mt-4 hover:bg-red-700 transition">
-              Order Now
-            </button>
-          </div>
+        <section className="relative flex flex-col md:flex-row justify-evenly items-center bg-amber-100 md:pl-24 md:space-x- max-md:space-y-6">
 
-          {/* Image Section */}
-          <div className="relative w-full md:w-[60%] h-[37vh] md:h-[60vh] flex justify-end order-1 md:order-2 overflow-hidden">
-            <div className="bg-red-600 w-[90%] md:w-[85%] h-full rounded-l-full absolute right-0 flex justify-start items-center">
-              <img
-                src="/img/banner-img-1.png"
-                alt="Hero Image"
-                className="w-[90%] md:w-[80%] h-[90%] ml-3 object-contain justify-start translate-x-3 md:translate-x-6 animate-wiggle"
-                style={{ animationDuration: "5s" }}
-              />
-            </div>
-          </div>
-        </section>
+  {/* Background Images */}
+  <div className="absolute top-0 right-0 w-[20%] h-[20%] bg-[url('/img/banner-vector-3.png')] bg-no-repeat bg-contain"></div>
+  <div className="absolute top-0 left-0 w-[25%] h-[25%] bg-[url('/img/banner-vector-1.png')] bg-no-repeat bg-contain"></div>
+  <div className="absolute bottom-0 right-0 w-[20%] h-[20%] bg-[url('/img/banner-vector-3.png')] bg-no-repeat bg-contain"></div>
+
+  {/* ✅ Image Section First on Tablets (iPad Mini) */}
+  <div className="relative w-full md:w-[60%] h-[37vh] md:h-[60vh] flex justify-end order-1 max-md:order-1 md:order-2 overflow-hidden">
+    <div className="bg-red-600 w-[90%] md:w-[85%] h-full rounded-l-full absolute right-0 flex justify-start items-center">
+      <img
+        src="/img/banner-img-1.png"
+        alt="Hero Image"
+        className="w-[90%] md:w-[80%] h-[90%] ml-3 object-contain justify-start translate-x-3 md:translate-x-6 animate-wiggle"
+        style={{ animationDuration: "5s" }}
+      />
+    </div>
+  </div>
+
+  {/* ✅ Shuffling Text Section Second on Tablets */}
+  <div className="justify-center text-3xl items-center p-6 flex-1 text-center md:text-left space-y-6 md:space-y-4 order-2 max-md:order-2 md:order-1">
+    {/* Title */}
+    <span className="text-red-500 text-2xl md:text-4xl font-kranky leading-tight">
+      Good Food, Good Mood.
+    </span>
+
+    {/* Animated Text */}
+    <div className="relative h-auto min-h-[90px] md:min-h-[120px] lg:min-h-[130px] flex items-center">
+  {texts.map((text, i) => (
+    <h1
+      key={i}
+      className={`absolute w-full text-3xl md:text-4xl lg:text-5xl font-raleway font-bold text-gray-800 transition-opacity duration-500 leading-relaxed ${
+        i === index ? "opacity-100 top-1/2 -translate-y-1/2" : "opacity-0"
+      }`}
+    >
+      {text}
+    </h1>
+  ))}
+</div>
+
+
+
+    {/* Description */}
+    <p className="text-gray-800 max-w-md text-lg md:text-lg leading-relaxed md:leading-loose">
+      Order now and experience the best taste with premium quality.
+    </p>
+
+    {/* Background Image */}
+    <div className="absolute bottom-0 left-0 w-[25%] h-[18%] bg-[url('/img/banner-vector-2.png')] bg-no-repeat bg-contain "></div>
+
+    {/* Button */}
+    <button className="relative z-10 bg-red-600 border-2 border-red-600 hover:bg-slate-50 
+      text-white hover:text-red-600 px-4 py-2 flex items-center gap-2 rounded-md 
+      transition-colors duration-300"
+    >
+      <span className="font-sans font-bold text-xl">ORDER NOW</span>
+      <FaArrowRight
+        className="border rounded-md text-2sm p-1 bg-slate-50 text-red-500 
+          hover:text-white hover:bg-red-500 transition-colors duration-300"
+      />
+    </button>
+  </div>
+</section>
+
 
         {/* About Section */}
-        <div className="relative flex flex-col md:flex-row items-center justify-center gap-10 p-6 md:p-12 ml-6 mr-6 text-sm bg-[url('/about-bg.jpg')] bg-cover bg-center">
+        <div className="relative flex flex-col md:flex-row items-center justify-center gap-10 p-6 md:p-11 ml-11 mr-11 text-xl bg-[url('/about-bg.jpg')] bg-cover bg-center">
           <div className="absolute inset-0 bg-white/60"></div>
 
           {/* Image Section */}
-          <div className="relative w-full md:w-1/2 z-10">
+          <div className="relative w-full md:w-1/3 z-10">
             <div className="absolute inset-0">
               <Image
                 src="/img/bg-img-2.jpg"
                 alt="bg-about"
                 layout="fill"
                 objectFit="cover"
-                className="opacity-50 rounded-lg"
+                className="opacity-70 rounded-lg"
               />
             </div>
             <Image
               src="/img/about-img-2.jpg"
               alt="img-about"
-              width={400}
-              height={500}
+              width={430}
+              height={555}
               className="relative rounded-lg shadow-lg"
             />
           </div>
 
           {/* Text Section */}
           <div className="w-full md:w-1/2 space-y-6 relative z-10">
-            <span className="text-red-600 font-semibold uppercase">
+            <span className="text-red-600 font-extrabold uppercase text-sm md:text-2lg">
               ABOUT US
             </span>
             <h1 className="text-3xl font-bold">
               Variety of flavours from American cuisine
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm">
               Every dish is not just prepared; it's crafted with utmost
               precision and a deep understanding of flavor harmony.
             </p>
@@ -110,10 +141,11 @@ export default function HeroSection() {
                     alt="cloche"
                     width={40}
                     height={40}
+      
                   />
                   <div>
-                    <h2 className="font-bold">Super Quality Food</h2>
-                    <p className="text-gray-600">
+                    <h2 className="font-bold text-lg">Super Quality Food</h2>
+                    <p className="text-gray-600 text-sm">
                       Served our Tasty Food & good food by friendly
                     </p>
                   </div>
@@ -121,8 +153,8 @@ export default function HeroSection() {
                 <div className="flex items-start space-x-3">
                   <Image src="/chef.png" alt="chef" width={40} height={40} />
                   <div>
-                    <h2 className="font-bold">Qualified Chef</h2>
-                    <p className="text-gray-600">
+                    <h2 className="font-bold text-lg">Qualified Chef</h2>
+                    <p className="text-gray-600 text-sm">
                       Served our Tasty Food & good food by friendly
                     </p>
                   </div>
@@ -140,20 +172,22 @@ export default function HeroSection() {
                 className="rounded-full"
               />
               <div>
-                <span className="text-gray-600">Kitchen, CEO</span>
-                <p className="font-bold">Jay Sarkar</p>
+                <span className="text-gray-600 text-sm">Kitchen, CEO</span>
+                <p className="font-bold mr-4 text-lg">Jay Sarkar</p>
               </div>
               <Image
                 src="/signature.png"
                 alt="Signature"
-                width={100}
+                width={70}
                 height={40}
               />
             </div>
           </div>
         </div>
-        {/*  */}
       </main>
+      <section className="justify-center">
+        <Demo />
+      </section>
     </div>
   );
 }

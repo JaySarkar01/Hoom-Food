@@ -5,10 +5,10 @@ import {
   FaTwitter,
   FaLinkedin,
   FaYoutube,
-  FaInstagram,
   FaArrowRight,
   FaBars,
   FaTimes,
+  FaUser,
 } from "react-icons/fa";
 
 export default function Navbar() {
@@ -55,8 +55,10 @@ export default function Navbar() {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        shopRef.current && !shopRef.current.contains(event.target) &&
-        pagesRef.current && !pagesRef.current.contains(event.target)
+        shopRef.current &&
+        !shopRef.current.contains(event.target) &&
+        pagesRef.current &&
+        !pagesRef.current.contains(event.target)
       ) {
         setIsShopOpen(false);
         setIsPagesOpen(false);
@@ -71,40 +73,85 @@ export default function Navbar() {
     <>
       {/* Upper Navbar */}
       <div
-        className={`fixed top-0 w-full bg-red-600 text-white flex justify-between items-center shadow-xl p-3 transition-transform duration-300 ${
+        className={`fixed border-b-4 border-[#FFFDD0] top-0 w-full bg-red-600 text-white flex flex-wrap justify-between items-start shadow-xl p-3 sm:p-6 lg:p-4 transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
         style={{ zIndex: 1000 }}
       >
-        <div className="flex gap-1">
-          <a href="#">Login</a>
+        {/* Left Section - Login/Register */}
+        <div className="flex gap-2 sm:gap-3 items-center text-sm sm:text-lg lg:text-2xl">
+          <FaUser className="text-lg sm:text-xl lg:text-2xl" />
+          <a href="#" className="hover:underline">
+            Login
+          </a>
           <span>/</span>
-          <a href="#">Register</a>
+          <a href="#" className="hover:underline">
+            Register
+          </a>
         </div>
-        <div className="flex gap-3">
-          <span className="text-white">Follow us:</span>
-          <FaFacebook className="text-white text-xl hover:text-blue-700" />
-          <FaTwitter className="text-white text-xl hover:text-sky-400" />
-          <FaLinkedin className="text-white text-xl hover:text-sky-500" />
-          <FaYoutube className="text-white text-xl hover:text-red-700" />
+
+        {/* Right Section - Social Icons */}
+        <div className="flex gap-3 sm:gap-5 items-center">
+          <span className="text-white text-sm sm:text-lg lg:text-xl">
+            Follow us:
+          </span>
+          <FaFacebook className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-blue-700 transition duration-300" />
+          <FaTwitter className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-sky-400 transition duration-300" />
+          <FaLinkedin className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-sky-600 transition duration-300" />
+          <FaYoutube className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-red-700 transition duration-300" />
         </div>
       </div>
 
       {/* Bottom Navbar */}
       <div
-        className={`fixed shadow-lg ${
-          isVisible
-            ? "top-[50px] border-none"
-            : "top-0 border-t-4 border-b-4 border-red-600 shadow-xl"
-        } w-full bg-white text-black flex justify-between items-center p-3 transition-all duration-300`}
+        className={`fixed text-2xl ${
+          isVisible ? "top-[65px] border-none" : "top-0"
+        } w-full bg-white text-black flex justify-between md:justify-between lg:justify-stretch items-center p-5 md:p-4 transition-all duration-300
+`}
         style={{ zIndex: 1000 }}
+        
       >
-        <span className="text-xl font-bold">LOGO</span>
+        {/* logo start  */}
+        <span className="flex flex-col items-start">
+          <span>
+            <span className="text-3xl sm:text-3xl lg:text-4xl font-bold font-serif text-rose-600">
+              Hoom
+            </span>
+            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif">
+              Food
+            </span>
+            <span className="text-3xl sm:text-4xl lg:text-5xl text-rose-500">
+              .
+            </span>
+          </span>
+          <span className="text-sm sm:text-base lg:text-xl font-mono tracking-wide ml-1">
+            Best <span className="ml-2"></span> Foods
+          </span>
+        </span>
 
+
+        {/* logo end */}
+        <svg className="absolute top-24 left-0 w-full" viewBox="0 0 1440 50">
+          <path
+            fill="none"
+            stroke="red"
+            strokeWidth="14"
+            d="M0,20 Q30,46 64,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 T1260,20 T1320,20 T1380,20 T1440,20 V0 H0 Z"
+          ></path>
+
+          <path
+            fill="white"
+            d="M0,20 Q30,42 66,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 T1260,20 T1320,20 T1380,20 T1440,20 V0 H0 Z"
+          ></path>
+        </svg>
         {!isMobile && (
           <div className="flex gap-6 items-center">
-            <a href="#" className="hover:text-red-600 transition">Home</a>
-            <a href="#" className="hover:text-red-600 transition">About</a>
+            <a href="#" className="hover:text-red-600 transition">
+              Home
+            </a>
+            <a href="#" className="hover:text-red-600 transition">
+              About
+            </a>
 
             {/* Shop Dropdown */}
             <div className="relative" ref={shopRef}>
@@ -117,7 +164,9 @@ export default function Navbar() {
               {isShopOpen && (
                 <ul className="absolute left-0 top-full bg-white shadow-md rounded-md p-2 space-y-1 w-40">
                   <li className="hover:text-red-600 transition">Shop</li>
-                  <li className="hover:text-red-600 transition">Shop Details</li>
+                  <li className="hover:text-red-600 transition">
+                    Shop Details
+                  </li>
                   <li className="hover:text-red-600 transition">Cart</li>
                   <li className="hover:text-red-600 transition">Checkout</li>
                 </ul>
@@ -144,15 +193,24 @@ export default function Navbar() {
               )}
             </div>
 
-            <a href="#" className="hover:text-red-600 transition">Blog</a>
-            <a href="#" className="hover:text-red-600 transition">Contact</a>
+            <a href="#" className="hover:text-red-600 transition">
+              Blog
+            </a>
+            <a href="#" className="hover:text-red-600 transition">
+              Contact
+            </a>
 
-            <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 flex items-center gap-2 rounded-md">
-              Order Now <FaArrowRight />
-            </button>
+            <button className="bg-red-600 border-2 border-red-600 hover:bg-slate-50 
+  text-white hover:text-red-600 px-4 py-2 flex items-center gap-2 rounded-md 
+  transition-colors duration-300">
+  <span className="font-sans font-bold text-lg">ORDER NOW</span> 
+  <FaArrowRight className="border rounded-md text-2sm p-1 bg-slate-50 text-red-500 
+    hover:text-white hover:bg-red-500 transition-colors duration-300"/>
+</button>
+
+
           </div>
         )}
-
         {isMobile && (
           <FaBars
             className="text-xl cursor-pointer ml-2"
@@ -202,7 +260,9 @@ export default function Navbar() {
                 {isShopOpen && (
                   <ul className="ml-4 text-sm bg-red-100 p-2 rounded">
                     <li className="hover:text-red-600 transition">Shop</li>
-                    <li className="hover:text-red-600 transition">Shop Details</li>
+                    <li className="hover:text-red-600 transition">
+                      Shop Details
+                    </li>
                     <li className="hover:text-red-600 transition">Cart</li>
                     <li className="hover:text-red-600 transition">Checkout</li>
                   </ul>
@@ -220,7 +280,9 @@ export default function Navbar() {
                 {isPagesOpen && (
                   <ul className="ml-4 text-sm bg-red-100 p-2 rounded">
                     <li className="hover:text-red-600 transition">Menu</li>
-                    <li className="hover:text-red-600 transition">Reservation</li>
+                    <li className="hover:text-red-600 transition">
+                      Reservation
+                    </li>
                     <li className="hover:text-red-600 transition">Services</li>
                     <li className="hover:text-red-600 transition">Our Chef</li>
                     <li className="hover:text-red-600 transition">Gallery</li>
@@ -234,6 +296,7 @@ export default function Navbar() {
       )}
 
       {/* Page Content */}
+
       <div className="pt-16"></div>
     </>
   );

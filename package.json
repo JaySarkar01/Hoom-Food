@@ -9,6 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/barriecito": "^5.1.1",
+    "@fontsource/bungee-spice": "^5.1.1",
+    "@fontsource/eater": "^5.1.1",
+    "@fontsource/erica-one": "^5.1.1",
+    "@fontsource/faster-one": "^5.1.1",
+    "@fontsource/frijole": "^5.1.1",
+    "@fontsource/kranky": "^5.1.1",
+    "@fontsource/mystery-quest": "^5.1.1",
+    "@fontsource/rampart-one": "^5.1.1",
+    "@fontsource/rubik-glitch": "^5.1.1",
+    "@next/font": "^14.2.15",
+    "bootstrap": "^5.3.3",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

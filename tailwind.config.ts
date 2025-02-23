@@ -8,6 +8,32 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
+        lora: ["Lora", "cursive"],
+        montserrat: ["Montserrat", "sans-serif"],
+        dmsans: ["DM Sans", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
+        nunito: ["Nunito", "sans-serif"],
+        merriweather: ["Merriweather", "serif"],
+        roboto: ["Roboto", "sans-serif"],
+        poppins: ['Poppins', 'sans-serif'],
+        quicksand: ['Quicksand', 'sans-serif'],
+        ralewayDots: ['"Raleway Dots"', 'cursive'],
+        glitch: ['Rubik Glitch', 'cursive'],
+        rampart: ['Rampart One', 'cursive'],
+        mystery: ['Mystery Quest', 'cursive'],
+        barrie: ['Barriecito', 'cursive'],
+        eater: ['Eater', 'cursive'],
+        erica: ['Erica One', 'cursive'],
+        faster: ['Faster One', 'cursive'],
+        spice: ['Bungee Spice', 'cursive'],
+        frijole: ['Frijole', 'cursive'],
+        kranky: ['Kranky', 'cursive'],
+        
+        
+      },
       backgroundImage: {
         'custom-banner': "url('/img/banner-vector-1.png'), url('/img/banner-vector-2.png')",
       },
