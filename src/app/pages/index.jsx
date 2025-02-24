@@ -32,7 +32,7 @@ export default function HeroSection() {
 
           {/* ✅ Image Section First on Tablets (iPad Mini) */}
           <div className="relative w-full md:w-[55%] h-[25vh] md:h-[65vh] flex justify-start order-1 max-md:order-1 md:order-2 overflow-hidden">
-            <div className="bg-red-600 w-[95%] md:w-[85%] h-full rounded-l-full absolute right-0 flex justify-start items-center">
+            <div className="bg-[#e60023] w-[95%] md:w-[85%] h-full rounded-l-full absolute right-0 flex justify-start items-center">
               <img
                 src="/img/banner-img-1.png"
                 alt="Hero Image"
@@ -75,13 +75,13 @@ export default function HeroSection() {
 
             {/* Button */}
             <button
-              className="relative z-10 bg-red-600 border-2 border-red-600 hover:bg-slate-50 
+              className="relative z-10 bg-[#e60023] border-2 border-[#e60023] hover:bg-slate-50 
       text-white hover:text-red-600 px-4 py-2 flex items-center gap-2 rounded-md 
       transition-colors duration-300"
             >
               <span className="font-sans font-bold text-xl">ORDER NOW</span>
               <FaArrowRight
-                className="border rounded-md text-2sm p-1 bg-slate-50 text-red-500 
+                className="border rounded-md text-2sm p-1 bg-slate-50 text-[#e60023] 
           hover:text-white hover:bg-red-500 transition-colors duration-300"
               />
             </button>
@@ -114,7 +114,7 @@ export default function HeroSection() {
 
           {/* Text Section */}
           <div className="w-full md:w-1/2 space-y-6 relative z-10">
-            <span className="text-red-600 font-extrabold flex gap-4 uppercase text-sm md:text-xl">
+            <span className="text-[#e60023] font-extrabold flex gap-4 uppercase text-sm md:text-xl">
             <Image src="/food.png" alt="Download Icon" width={24} height={24} />
               ABOUT US
             </span>
@@ -202,7 +202,7 @@ export default function HeroSection() {
       </p>
 
       <button
-        className="relative z-10 bg-red-600 border-2 border-red-600 hover:bg-slate-50 
+        className="relative z-10 bg-[#e60023] border-2 border-[#e60023] hover:bg-slate-50 
         text-white hover:text-red-600 px-6 py-3 flex items-center gap-2 rounded-md 
         transition-colors duration-300"
       >
@@ -210,7 +210,7 @@ export default function HeroSection() {
           ORDER NOW
         </span>
         <FaArrowRight
-          className="border rounded-md text-2xl p-1 bg-slate-50 text-red-500 
+          className="border rounded-md text-2xl p-1 bg-slate-50 text-[#e60023]
           hover:text-white hover:bg-red-500 transition-colors duration-300"
         />
       </button>
@@ -240,17 +240,17 @@ export default function HeroSection() {
     </div>
   </div>
 
-  <section className="relative bg-gray-100 py-10 px-6 md:px-16 w-full m-16 lg:ml-60 lg:mr-60">
-  <div className="max-w-[90%] mx-auto flex flex-col md:flex-row items-center gap-10 bg-white shadow-lg relative overflow-hidden rounded-tl-[80px] rounded-br-[80px]">
+  <section className="relative bg-gray-100 py-5 lg:px-16 md:px-16 w-full m-10 lg:ml-60 lg:mr-60">
+  <div className="max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-10 bg-white shadow-lg relative overflow-hidden rounded-tl-[80px] rounded-br-[80px]">
     {/* Left Side: Text & Buttons */}
-    <div className="flex-1 space-y-4 p-6 md:p-12 text-center md:text-left">
+    <div className="flex-1 space-y-4 p-6 md:p-16 text-center md:text-left">
       {/* Heading Section */}
-      <div className="flex justify-center md:justify-start items-center gap-2 text-red-600 font-semibold text-lg uppercase tracking-wide">
+      <div className="flex justify-center md:justify-start items-center gap-2 text-[#e60023] font-semibold text-lg uppercase tracking-wide">
         <Image src="/food.png" alt="Download Icon" width={24} height={24} />
         <span>Download App</span>
         <Image src="/food.png" alt="Download Icon" width={24} height={24} />
       </div>
-
+      <div className="absolute bottom-0 left-0 w-[40%] md:w-[20%] h-[20%] bg-[url('/img/bottom-banners/ad-vector-2.png')] bg-no-repeat bg-contain"></div>
       {/* Main Title */}
       <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
         Download food app <br className="hidden md:block" /> Order today!
@@ -259,29 +259,29 @@ export default function HeroSection() {
       {/* Download Buttons */}
       <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
         {/* App Store Button */}
-        <button className="flex items-center gap-3 px-6 py-3 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
+        <button className="flex items-center gap-3 px-5 py-1 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
           <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
           <span className="text-gray-400">Get in on <br /><strong className="text-xl text-black">Apps Store</strong></span>
         </button>
 
         {/* Google Play Button */}
-        <button className="flex items-center gap-3 px-6 py-3 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
+        <button className="flex items-center gap-3 px-5 py-1 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
           <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
           <span className="text-gray-400">Get in on <br /><strong className="text-xl text-black">Google Play</strong></span>
         </button>
       </div>
 
-      {/* Left-Side Decorative Background */}
-      <div className="absolute bottom-0 left-0 w-[40%] md:w-[20%] h-[30%] bg-[url('/img/bottom-banners/ad-vector-2.png')] bg-no-repeat bg-contain"></div>
+
+      
     </div>
 
     {/* Right Side: Mobile Screens with Background */}
-    <div className="relative w-full md:w-[50%] flex justify-center md:justify-end items-center pr-0 md:pr-24">
+    <div className="relative w-full md:w-[50%] flex justify-center md:justify-end items-center md:pr-24">
       {/* Orange Background - Adjusted for All Screens */}
       <div className="absolute bottom-0 right-0 w-full md:w-[85%] h-[100%] bg-[#FE7A00] rounded-tl-[80px] rounded-br-[80px] bg-pattern z-0"></div>
 
       {/* Top Right Decorative Background */}
-      <div className="absolute top-0 right-0 w-[30%] md:w-[20%] h-[30%] bg-[url('/img/bottom-banners/app-ad-vector-3.png')] bg-no-repeat bg-contain"></div>
+      <div className="absolute top-0 right-[-15] w-[30%] md:w-[20%] h-[30%] bg-[url('/img/bottom-banners/app-ad-vector-3.png')] bg-no-repeat bg-contain"></div>
 
       {/* Mobile Screens */}
       <div className="relative flex items-end z-10">

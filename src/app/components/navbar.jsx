@@ -73,7 +73,7 @@ export default function Navbar() {
     <>
       {/* Upper Navbar */}
       <div
-        className={`fixed border-b-4 border-[#FFFDD0] top-0 w-full bg-red-600 text-white flex flex-wrap justify-between items-start shadow-xl p-3 sm:p-6 lg:p-4 transition-transform duration-300 ${
+        className={`fixed border-b-4 border-[#FFFDD0] top-0 w-full bg-[#e60023] text-white flex flex-wrap justify-between items-start shadow-xl p-3 sm:p-6 lg:p-4 transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
         style={{ zIndex: 1000 }}
@@ -105,7 +105,7 @@ export default function Navbar() {
       {/* Bottom Navbar */}
       <div
         className={`fixed text-2xl ${
-          isVisible ? "top-[65px] border-none" : "top-0"
+          isVisible ? "top-[48px] md:top-[65px] lg:top-[65px] border-none" : "top-0"
         } w-full bg-white text-black flex justify-between md:justify-between lg:justify-stretch items-center p-5 md:p-4 transition-all duration-300
 `}
         style={{ zIndex: 1000 }}
@@ -136,6 +136,7 @@ export default function Navbar() {
             fill="none"
             stroke="red"
             strokeWidth="14"
+            
             d="M0,20 Q30,46 64,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 T1260,20 T1320,20 T1380,20 T1440,20 V0 H0 Z"
           ></path>
 
@@ -200,7 +201,7 @@ export default function Navbar() {
               Contact
             </a>
 
-            <button className="bg-red-600 border-2 border-red-600 hover:bg-slate-50 
+            <button className="bg-[#e60023] border-2 border-[#e60023] hover:bg-slate-50 
   text-white hover:text-red-600 px-4 py-2 flex items-center gap-2 rounded-md 
   transition-colors duration-300">
   <span className="font-sans font-bold text-lg">ORDER NOW</span> 
