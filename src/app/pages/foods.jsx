@@ -37,7 +37,7 @@ const MenuItem = ({ imageSrc, title, price, rating, description, discount }) => 
   );
 };
 
-export default function Demo() {
+export default function Foodie() {
   return (
     <div className="p-6 relative">
   {/* Background Image with Overlay */}

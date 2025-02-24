@@ -36,6 +36,7 @@ export default {
       },
       backgroundImage: {
         'custom-banner': "url('/img/banner-vector-1.png'), url('/img/banner-vector-2.png')",
+        'pattern': "linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)), linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1))",
       },
       colors: {
         background: "var(--background)",
