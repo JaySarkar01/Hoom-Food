@@ -6,9 +6,9 @@ import { FaArrowRight } from "react-icons/fa";
 export default function HeroSection() {
   const texts = [
     <>Savor flavors, enjoy life!</>,
-    <span className="text-6xl font-extrabold">Fresh ingredients, bold taste!</span>,
+    <span className="lg:text-6xl font-extrabold">Fresh ingredients, bold taste!</span>,
     <>Every bite, pure delight!</>,
-    <>Made with love, served fresh!</>,
+    <span className="lg:text-6xl font-raleway font-extrabold">Made with love, served fresh!</span>,
   ];
 
   const [index, setIndex] = useState(0);
@@ -46,28 +46,26 @@ export default function HeroSection() {
           {/* ✅ Shuffling Text Section Second on Tablets */}
           <div className="justify-center text-3xl items-center p-6 flex-1 text-center md:text-left space-y-6 md:space-y-4 order-2 max-md:order-2 md:order-1">
             {/* Title */}
-            <span className="text-red-500 text-2xl md:text-4xl font-kranky leading-tight">
+            <span className="text-red-500 text-xl md:text-4xl font-kranky leading-tight">
               Good Food, Good Mood.
             </span>
 
             {/* Animated Text */}
-            <div className="relative h-auto min-h-[70px] md:min-h-[120px] lg:min-h-[130px] flex items-center">
+            <div className="relative h-auto min-h-[70px] md:min-h-[120px] lg:min-h-[140px] flex items-center">
               {texts.map((text, i) => (
                 <h1
-                  key={i}
-                  className={`absolute w-full text-4xl md:text-4xl lg:text-7xl font-raleway font-bold text-gray-800 transition-opacity duration-500 leading-loose ${
-                    i === index
-                      ? "opacity-100 top-1/2 -translate-y-1/2"
-                      : "opacity-0"
-                  }`}
-                >
-                  {text}
-                </h1>
+                key={i}
+                className={`absolute w-full text-4xl md:text-4xl lg:text-7xl font-raleway font-bold text-gray-800 transition-opacity duration-500 leading-[1.4] md:leading-[1.3] lg:leading-[1.2] ${
+                  i === index ? "opacity-100 top-1/2 -translate-y-1/2" : "opacity-0"
+                }`}
+              >
+                {text}
+              </h1>
               ))}
             </div>
 
             {/* Description */}
-            <p className="text-gray-800 max-w-md text-lg md:text-lg leading-relaxed md:leading-loose">
+            <p className="text-gray-600 max-w-md text-lg md:text-lg leading-relaxed md:leading-loose">
               Order now and experience the best taste with premium quality.
             </p>
 
@@ -90,7 +88,7 @@ export default function HeroSection() {
         </section>
 
         {/* About Section */}
-        <div className="relative flex flex-col md:flex-row items-center justify-center gap-10 p-6 md:p-11 ml-11 mr-11 text-xl bg-[url('/about-bg.jpg')] bg-cover bg-center">
+        <div id="about-section" className="relative flex flex-col md:flex-row items-center justify-center gap-10 p-6 md:p-24 lg:pt-36 lg:pb-36 ml-11 mr-11 text-xl bg-[url('/about-bg.jpg')] bg-cover bg-center">
           <div className="absolute inset-0 bg-white/60"></div>
 
           {/* Image Section */}
@@ -114,7 +112,7 @@ export default function HeroSection() {
           </div>
 
           {/* Text Section */}
-          <div className="w-full md:w-1/2 space-y-6 relative z-10">
+          <div className=" w-full md:w-1/2 space-y-6 relative z-10" >
             <span className="text-[#e60023] font-extrabold flex gap-4 uppercase text-sm md:text-xl">
             <Image src="/food.png" alt="Download Icon" width={24} height={24} />
               ABOUT US
@@ -182,7 +180,7 @@ export default function HeroSection() {
 
       {/* food container */}
 
-      <section className="justify-center">
+      <section className="justify-center" id="food-section">
         <Foodie />
       </section>
 
@@ -313,7 +311,7 @@ export default function HeroSection() {
   </div>
 </section>
 </section>
-<section>
+<section id="contact-us">
   <ContactUs/>
 </section>
     </div>

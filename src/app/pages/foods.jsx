@@ -23,7 +23,7 @@ const MenuItem = ({ imageSrc, title, price, rating, description, discount }) => 
           </span>
         </div>
 
-        <h3 className="text-xl font-bold text-gray-900 mt-2">{title}</h3>
+        <h3 className="text-lg lg:text-2xl font-bold text-gray-900 mt-2">{title}</h3>
         <div className="text-md text-gray-600 mt-2">
           <span>✔ 4 Piece Chicken</span><br />
           <span>✔ Spicy Sauce</span>
@@ -39,7 +39,7 @@ const MenuItem = ({ imageSrc, title, price, rating, description, discount }) => 
 
 export default function Foodie() {
   return (
-    <div className="p-6 relative">
+    <div className="p-6 lg:p-24 relative">
   {/* Background Image with Overlay */}
   <div 
     className="absolute inset-0 bg-[url('/food-bg.webp')] bg-cover bg-center opacity-80"

@@ -54,20 +54,21 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        shopRef.current &&
-        !shopRef.current.contains(event.target) &&
-        pagesRef.current &&
-        !pagesRef.current.contains(event.target)
-      ) {
+      if (shopRef.current && !shopRef.current.contains(event.target)) {
         setIsShopOpen(false);
-        setIsPagesOpen(false);
       }
     };
-
-    document.addEventListener("click", handleClickOutside);
+  
+    if (isShopOpen) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
+  
     return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+  }, [isShopOpen]);
+  
+  
 
   return (
     <>
@@ -104,7 +105,7 @@ export default function Navbar() {
 
       {/* Bottom Navbar */}
       <div
-        className={`fixed text-2xl ${
+        className={`fixed text-2xl shadow-2xl ${
           isVisible ? "top-[48px] md:top-[65px] lg:top-[65px] border-none" : "top-0"
         } w-full bg-white text-black flex justify-between md:justify-between lg:justify-stretch items-center p-5 md:p-4 transition-all duration-300
 `}
@@ -112,6 +113,7 @@ export default function Navbar() {
         
       >
         {/* logo start  */}
+        <a href="#">
         <span className="flex flex-col items-start">
           <span>
             <span className="text-3xl sm:text-3xl lg:text-4xl font-bold font-serif text-rose-600">
@@ -128,6 +130,7 @@ export default function Navbar() {
             Best <span className="ml-2"></span> Foods
           </span>
         </span>
+        </a>
 
 
         {/* logo end */}
@@ -150,7 +153,7 @@ export default function Navbar() {
             <a href="#" className="hover:text-red-600 transition">
               Home
             </a>
-            <a href="#" className="hover:text-red-600 transition">
+            <a href="#about-section" className="hover:text-red-600 transition">
               About
             </a>
 
@@ -164,7 +167,7 @@ export default function Navbar() {
               </button>
               {isShopOpen && (
                 <ul className="absolute left-0 top-full bg-white shadow-md rounded-md p-2 space-y-1 w-40">
-                  <li className="hover:text-red-600 transition">Shop</li>
+                  <li className="hover:text-red-600 transition" ><a href="#food-section">Foods</a></li>
                   <li className="hover:text-red-600 transition">
                     Shop Details
                   </li>
@@ -174,30 +177,8 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Pages Dropdown */}
-            <div className="relative" ref={pagesRef}>
-              <button
-                onClick={handlePagesToggle}
-                className="hover:text-red-600 transition flex items-center"
-              >
-                Pages
-              </button>
-              {isPagesOpen && (
-                <ul className="absolute left-0 top-full bg-white shadow-md rounded-md p-2 space-y-1 w-40">
-                  <li className="hover:text-red-600 transition">Menu</li>
-                  <li className="hover:text-red-600 transition">Reservation</li>
-                  <li className="hover:text-red-600 transition">Services</li>
-                  <li className="hover:text-red-600 transition">Our Chef</li>
-                  <li className="hover:text-red-600 transition">Gallery</li>
-                  <li className="hover:text-red-600 transition">FAQ</li>
-                </ul>
-              )}
-            </div>
-
-            <a href="#" className="hover:text-red-600 transition">
-              Blog
-            </a>
-            <a href="#" className="hover:text-red-600 transition">
+            
+            <a href="#contact-us" className="hover:text-red-600 transition">
               Contact
             </a>
 
@@ -238,7 +219,25 @@ export default function Navbar() {
           >
             {/* Sidebar Header */}
             <div className="flex justify-between items-center">
-              <img src="/logo.png" alt="Logo" className="h-10" />
+               {/* logo start  */}
+        <a href="#">
+        <span className="flex flex-col items-start">
+          <span>
+            <span className="text-3xl sm:text-3xl lg:text-4xl font-bold font-serif text-rose-600">
+              Hoom
+            </span>
+            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif">
+              Food
+            </span>
+            <span className="text-3xl sm:text-4xl lg:text-5xl text-rose-500">
+              .
+            </span>
+          </span>
+          <span className="text-sm sm:text-base lg:text-xl font-mono tracking-wide ml-1">
+            Best <span className="ml-2"></span> Foods
+          </span>
+        </span>
+        </a>
               <FaTimes
                 className="text-xl cursor-pointer"
                 onClick={() => setIsSidebarOpen(false)}
@@ -247,9 +246,9 @@ export default function Navbar() {
 
             {/* Sidebar Menu */}
             <ul className="mt-6 space-y-4">
-              <li className="hover:text-red-600 transition">Home</li>
-              <li className="hover:text-red-600 transition">About</li>
-
+              <li className="hover:text-red-600 transition"><a href="#">Home</a></li>
+              <li className="hover:text-red-600 transition"><a href="#about-section">About</a></li>
+              <li className="hover:text-red-600 transition"><a href="#contact-us">Contact us</a></li>
               {/* Shop Dropdown */}
               <li>
                 <div
@@ -260,7 +259,7 @@ export default function Navbar() {
                 </div>
                 {isShopOpen && (
                   <ul className="ml-4 text-sm bg-red-100 p-2 rounded">
-                    <li className="hover:text-red-600 transition">Shop</li>
+                    <li className="hover:text-red-600 transition"><a href="#food-section">Foods</a></li>
                     <li className="hover:text-red-600 transition">
                       Shop Details
                     </li>
@@ -270,27 +269,6 @@ export default function Navbar() {
                 )}
               </li>
 
-              {/* Pages Dropdown */}
-              <li>
-                <div
-                  className="flex justify-between cursor-pointer hover:text-red-600 transition"
-                  onClick={handlePagesToggle}
-                >
-                  <span>Pages</span>
-                </div>
-                {isPagesOpen && (
-                  <ul className="ml-4 text-sm bg-red-100 p-2 rounded">
-                    <li className="hover:text-red-600 transition">Menu</li>
-                    <li className="hover:text-red-600 transition">
-                      Reservation
-                    </li>
-                    <li className="hover:text-red-600 transition">Services</li>
-                    <li className="hover:text-red-600 transition">Our Chef</li>
-                    <li className="hover:text-red-600 transition">Gallery</li>
-                    <li className="hover:text-red-600 transition">FAQ</li>
-                  </ul>
-                )}
-              </li>
             </ul>
           </div>
         </>
