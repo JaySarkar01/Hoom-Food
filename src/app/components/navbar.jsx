@@ -138,7 +138,7 @@ export default function Navbar() {
           <path
             fill="none"
             stroke="red"
-            strokeWidth="14"
+            strokeWidth="7"
             
             d="M0,20 Q30,46 64,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 T1260,20 T1320,20 T1380,20 T1440,20 V0 H0 Z"
           ></path>

@@ -1,48 +1,91 @@
 "use client";
 import Index from "@/app/pages/index";
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa";
+import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 
 export default function Home() {
   return (
     <main>
       <Index />
       <footer className="bg-gray-900 text-white py-10">
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="max-w-6xl mx-auto px-4">
+          {/* Grid Container */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* About Section */}
-            <div>
-              <h3 className="text-2xl font-bold text-[#e60023]">Hoom Food.</h3>
-              <p className="mt-2 text-gray-400">
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold text-[#e60023]">
+                Hoom Food<span className="text-3xl font-spice">.</span>
+              </h2>
+              <p className="text-gray-400 pb-6 border-b border-gray-700">
                 Your favorite dishes, freshly prepared and delivered to your doorstep. Quality food made with love.
               </p>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-lg font-semibold text-white">Quick Links</h4>
-              <ul className="mt-2 space-y-2">
-                <li><a href="#" className="hover:text-[#e60023] transition">Home</a></li>
-                <li><a href="#food-section" className="hover:text-[#e60023] transition">Menu</a></li>
-                <li><a href="#contact-us" className="hover:text-[#e60023] transition">Contact</a></li>
-                <li><a href="#about-section" className="hover:text-[#e60023] transition">About Us</a></li>
-              </ul>
-            </div>
+            {/* Quick Links and Contact Section */}
+            <div className="grid grid-cols-2 gap-6">
+              {/* Quick Links */}
+               {/* Quick Links */}
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold text-[#e60023]">Quick Links</h3>
+    <ul className="space-y-2">
+      {[
+        { name: "Home", id: "" },
+        { name: "Menu", id: "food-section" },
+        { name: "Contact", id: "contact-us" },
+        { name: "About Us", id: "about-section" },
+      ].map(({ name, id }) => (
+        <li key={id}>
+          <a
+            href={`#${id}`}
+            className="text-gray-400 hover:text-[#e60023] transition-colors cursor-pointer"
+          >
+            {name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 
-            {/* Social Media */}
-            <div>
-              <h4 className="text-lg font-semibold text-white">Follow Us</h4>
-              <div className="flex justify-center md:justify-start gap-4 mt-3">
-                <a href="#" className="text-xl text-gray-400 hover:text-[#e60023] transition"><FaFacebook /></a>
-                <a href="#" className="text-xl text-gray-400 hover:text-[#e60023] transition"><FaInstagram /></a>
-                <a href="#" className="text-xl text-gray-400 hover:text-[#e60023] transition"><FaTwitter /></a>
-                <a href="#" className="text-xl text-gray-400 hover:text-[#e60023] transition"><FaYoutube /></a>
+              {/* Contact Section */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-[#e60023]">Contact Us</h3>
+                <div className="space-y-2 text-gray-400">
+                  <p className="flex items-center gap-2">
+                    <MdLocationOn className="text-xl text-[#e60023]" />
+                    <span>123, Rudrapur, India</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <MdEmail className="text-xl text-[#e60023]" />
+                    <span>support@hoomfood.com</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <MdPhone className="text-xl text-[#e60023]" />
+                    <span>+91 98765 43210</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Copyright Section */}
-          <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} Cloud Kitchen, the Hoom Food. All rights reserved. | Made with ❤️ by Jay Sarkar
+          {/* Social Media & Copyright */}
+          <div className="mt-8 text-center">
+            {/* Social Media Icons */}
+            <div className="flex justify-center gap-6 mb-4">
+              {[FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="text-gray-300 hover:text-[#e60023] transition-transform transform hover:scale-110 cursor-pointer text-2xl"
+                >
+                  <Icon />
+                </a>
+              ))}
+            </div>
+
+            {/* Copyright */}
+            <p className="text-gray-400 text-sm">
+              © 2025 Cloud Kitchen, the Hoom Food. All rights reserved. | Made with ❤️ by Jay Sarkar
+            </p>
           </div>
         </div>
       </footer>
