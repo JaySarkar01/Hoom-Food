@@ -49,18 +49,18 @@ export default function Home() {
               {/* Contact Section */}
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold text-[#e60023]">Contact Us</h3>
-                <div className="space-y-2 text-gray-400">
+                <div className="space-y-3 text-gray-400">
                   <p className="flex items-center gap-2">
                     <MdLocationOn className="text-xl text-[#e60023]" />
-                    <span>123, Rudrapur, India</span>
+                    <span className="text-sm">123, Rudrapur, India</span>
                   </p>
                   <p className="flex items-center gap-2">
                     <MdEmail className="text-xl text-[#e60023]" />
-                    <span>support@hoomfood.com</span>
+                    <span className="text-sm">support@hoomfood.com</span>
                   </p>
                   <p className="flex items-center gap-2">
                     <MdPhone className="text-xl text-[#e60023]" />
-                    <span>+91 98765 43210</span>
+                    <span className="text-sm">+91 98765 43210</span>
                   </p>
                 </div>
               </div>
