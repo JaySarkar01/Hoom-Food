@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",  // Required for static export
-  basePath: "/Hoom-Food",  // Replace with your GitHub repo name
-  assetPrefix: "/Hoom-Food/",
+  /* config options here */
+  
 };
 
-export default nextConfig;
+module.exports = nextConfig;
