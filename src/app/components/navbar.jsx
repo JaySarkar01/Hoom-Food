@@ -74,14 +74,14 @@ export default function Navbar() {
     <>
       {/* Upper Navbar */}
       <div
-        className={`fixed border-b-4 border-[#FFFDD0] top-0 w-full bg-[#e60023] text-white flex flex-wrap justify-between items-start shadow-xl p-3 sm:p-6 lg:p-4 transition-transform duration-300 ${
+        className={`fixed border-b-4 border-[#FFFDD0] top-0 w-full bg-[#e60023] text-white flex flex-wrap justify-between items-start p-3 sm:p-2 lg:p-3 transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
         style={{ zIndex: 1000 }}
       >
         {/* Left Section - Login/Register */}
-        <div className="flex gap-2 sm:gap-3 items-center text-sm sm:text-lg lg:text-2xl">
-          <FaUser className="text-lg sm:text-xl lg:text-2xl" />
+        <div className="flex gap-2 sm:gap-3 items-center text-sm lg:text-lg">
+          <FaUser className="lg:text-lg" />
           <a href="#" className="hover:underline">
             Login
           </a>
@@ -92,22 +92,22 @@ export default function Navbar() {
         </div>
 
         {/* Right Section - Social Icons */}
-        <div className="flex gap-3 sm:gap-5 items-center">
-          <span className="text-white text-sm sm:text-lg lg:text-xl">
+        <div className="flex gap-3 sm:gap-5 items-center pr-3">
+          <span className="text-white lg:text-lg text-sm">
             Follow us:
           </span>
-          <FaFacebook className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-blue-700 transition duration-300" />
-          <FaTwitter className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-sky-400 transition duration-300" />
-          <FaLinkedin className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-sky-600 transition duration-300" />
-          <FaYoutube className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-red-700 transition duration-300" />
+          <FaFacebook className="text-white lg:text-xl text-sm hover:text-blue-700 transition duration-300" />
+          <FaTwitter className="text-white lg:text-xl text-sm hover:text-sky-400 transition duration-300" />
+          <FaLinkedin className="text-white lg:text-xl text-sm hover:text-sky-100 transition duration-300" />
+          <FaYoutube className="text-white lg:text-xl text-sm hover:text-red-700 transition duration-300" />
         </div>
       </div>
 
       {/* Bottom Navbar */}
       <div
-        className={`fixed text-2xl shadow-2xl ${
-          isVisible ? "top-[48px] md:top-[65px] lg:top-[65px] border-none" : "top-0"
-        } w-full bg-white text-black flex justify-between md:justify-between lg:justify-stretch items-center p-5 md:p-4 transition-all duration-300
+        className={`fixed text-2xl shadow-lg ${
+          isVisible ? "top-[48px] md:top-[65px] lg:top-[55px] border-none" : "top-0"
+        } w-full bg-white text-black flex justify-between md:justify-between lg:justify-between items-center p-5 md:p-4 transition-all duration-450
 `}
         style={{ zIndex: 1000 }}
         
@@ -116,10 +116,10 @@ export default function Navbar() {
         <a href="#">
         <span className="flex flex-col items-start">
           <span>
-            <span className="text-3xl sm:text-3xl lg:text-4xl font-bold font-serif text-rose-600">
+            <span className="text-3xl sm:text-3xl lg:text-3xl font-bold font-lora text-rose-600">
               Hoom
             </span>
-            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif">
+            <span className="text-3xl sm:text-3xl lg:text-5xl font-serif">
               Food
             </span>
             <span className="text-3xl sm:text-4xl lg:text-5xl text-rose-500">
@@ -134,7 +134,7 @@ export default function Navbar() {
 
 
         {/* logo end */}
-        <svg className="absolute top-24 left-0 w-full" viewBox="0 0 1440 50">
+        {/* <svg className="absolute top-24 left-0 w-full" viewBox="0 0 1440 50">
           <path
             fill="none"
             stroke="red"
@@ -147,9 +147,9 @@ export default function Navbar() {
             fill="white"
             d="M0,20 Q30,42 66,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 T1260,20 T1320,20 T1380,20 T1440,20 V0 H0 Z"
           ></path>
-        </svg>
+        </svg> */}
         {!isMobile && (
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-9 items-center text-gray-700 font-raleway font-semibold">
             <a href="#" className="hover:text-red-600 transition">
               Home
             </a>
@@ -182,16 +182,11 @@ export default function Navbar() {
               Contact
             </a>
 
-            <button className="bg-[#e60023] border-2 border-[#e60023] hover:bg-slate-50 
-  text-white hover:text-red-600 px-4 py-2 flex items-center gap-2 rounded-md 
-  transition-colors duration-300">
-  <span className="font-sans font-bold text-lg">ORDER NOW</span> 
-  <FaArrowRight className="border rounded-md text-2sm p-1 bg-slate-50 text-red-500 
-    hover:text-white hover:bg-red-500 transition-colors duration-300"/>
-</button>
+            
 
 
           </div>
+          
         )}
         {isMobile && (
           <FaBars
@@ -199,6 +194,15 @@ export default function Navbar() {
             onClick={() => setIsSidebarOpen(true)}
           />
         )}
+        <div>
+<button className="bg-[#e60023] border-2 border-[#e60023] hover:bg-slate-50 
+  text-white hover:text-red-600 px-4 py-2 flex items-center gap-2 rounded-md 
+  transition-colors duration-300">
+  <span className="font-sans font-bold text-lg">ORDER NOW</span> 
+  <FaArrowRight className="border rounded-md text-2sm p-1 bg-slate-50 text-red-500 
+    hover:text-white hover:bg-red-500 transition-colors duration-300"/>
+</button>
+</div>
       </div>
 
       {/* Sidebar (Only Mobile View) */}

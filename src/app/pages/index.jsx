@@ -21,7 +21,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="mt-3 flex flex-col min-h-screen pt-24">
+    <div className="mt-3 flex flex-col min-h-screen pt-20">
       {/* Main Content Section */}
       <main className="flex flex-col justify-between min-h-screen">
         {/* Hero Section */}
@@ -254,19 +254,19 @@ export default function HeroSection() {
       <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
         Download food app <br className="hidden md:block" /> Order today!
       </h1>
-
+             
       {/* Download Buttons */}
-      <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
+      <div className="flex flex-wrap justify-center md:justify-start gap-7 mt-6 pt-2">
         {/* App Store Button */}
-        <button className="flex items-center gap-3 px-5 py-1 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
+        <button className="flex items-center gap-4 px-5 py-1 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
           <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
-          <span className="text-gray-400">Get in on <br /><strong className="text-lg font-poppins lg:text-xl text-black">Apps Store</strong></span>
+          <span className="text-gray-400 text-start">Get in on <br /><strong className="text-lg font-poppins lg:text-xl text-black">Apps Store</strong></span>
         </button>
 
         {/* Google Play Button */}
         <button className="flex items-center gap-3 px-5 py-1 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
           <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
-          <span className="text-gray-400">Get in on <br /><strong className="text-lg lg:text-xl text-black">Google Play</strong></span>
+          <span className="text-gray-400 text-start">Get in on <br /><strong className="text-lg lg:text-xl text-black">Google Play</strong></span>
         </button>
       </div>
 
@@ -277,7 +277,7 @@ export default function HeroSection() {
     {/* Right Side: Mobile Screens with Background */}
     <div className="relative w-full md:w-[50%] flex justify-center items-center">
       {/* Orange Background - Adjusted for All Screens */}
-      <div className="absolute bottom-0 right-0 w-full md:w-[85%] h-[100%] bg-[#FE7A00] rounded-tl-[80px] rounded-br-[80px] bg-pattern z-0"></div>
+      <div className="absolute bottom-0 right-0 w-full md:w-[100%] h-[100%] bg-[#FE7A00] rounded-tl-[80px] rounded-br-[80px] bg-pattern z-0"></div>
 
       {/* Top Right Decorative Background */}
       <div className="absolute top-0 right-[-15] w-[30%] md:w-[20%] h-[30%] bg-[url('/img/bottom-banners/app-ad-vector-3.png')] bg-no-repeat bg-contain"></div>
