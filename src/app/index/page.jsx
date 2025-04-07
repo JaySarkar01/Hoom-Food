@@ -1,7 +1,8 @@
+"use client"
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Foodie from "@/app/pages/foods";
-import ContactUs from "@/app/pages/contactus"
+import Foodie from "@/app/components/foods";
+import ContactUs from "@/app/components/contactus"
 import { FaArrowRight } from "react-icons/fa";
 export default function HeroSection() {
   const texts = [
@@ -240,76 +241,67 @@ export default function HeroSection() {
   </div>
 
   <section className="relative bg-gray-100 py-5 lg:px-10 md:px-16 w-full m-10 lg:ml-60 lg:mr-60">
-  <div className="max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-10 bg-white shadow-lg relative overflow-hidden rounded-tl-[80px] rounded-br-[80px]">
+  <div className=" max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-10 bg-[url('/img/bottom-banners/cool-background.png')] bg-cover bg-center shadow-lg relative overflow-hidden rounded-tl-[85px] rounded-br-[85px]">
     {/* Left Side: Text & Buttons */}
+    <div className="absolute bottom-0 left-0 w-[40%] md:w-[20%] h-[20%] bg-[url('/img/bottom-banners/ad-vector-2.png')] bg-no-repeat bg-contain"></div>
     <div className="flex-1 space-y-4 p-6 md:p-16 text-center md:text-left">
-      {/* Heading Section */}
       <div className="flex justify-center md:justify-start items-center gap-2 text-[#e60023] font-semibold text-lg uppercase tracking-wide">
         <Image src="/food.png" alt="Download Icon" width={24} height={24} />
         <span>Download App</span>
         <Image src="/food.png" alt="Download Icon" width={24} height={24} />
       </div>
-      <div className="absolute bottom-0 left-0 w-[40%] md:w-[20%] h-[20%] bg-[url('/img/bottom-banners/ad-vector-2.png')] bg-no-repeat bg-contain"></div>
-      {/* Main Title */}
       <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
         Download food app <br className="hidden md:block" /> Order today!
       </h1>
-             
-      {/* Download Buttons */}
       <div className="flex flex-wrap justify-center md:justify-start gap-7 mt-6 pt-2">
-        {/* App Store Button */}
-        <button className="flex items-center gap-4 px-5 py-1 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
+        <button className="flex items-center gap-4 px-5 py-2 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
           <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
-          <span className="text-gray-400 text-start">Get in on <br /><strong className="text-lg font-poppins lg:text-xl text-black">Apps Store</strong></span>
+          <span className="text-gray-400 text-start">Get it on <br /><strong className="text-lg lg:text-xl text-black">App Store</strong></span>
         </button>
-
-        {/* Google Play Button */}
-        <button className="flex items-center gap-3 px-5 py-1 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
+        <button className="flex items-center gap-3 px-5 py-2 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
           <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
-          <span className="text-gray-400 text-start">Get in on <br /><strong className="text-lg lg:text-xl text-black">Google Play</strong></span>
+          <span className="text-gray-400 text-start">Get it on <br /><strong className="text-lg lg:text-xl text-black">Google Play</strong></span>
         </button>
       </div>
-
-
-      
     </div>
-
+    
     {/* Right Side: Mobile Screens with Background */}
-    <div className="relative w-full md:w-[50%] flex justify-center items-center">
-      {/* Orange Background - Adjusted for All Screens */}
-      <div className="absolute bottom-0 right-0 w-full md:w-[100%] h-[100%] bg-[#FE7A00] rounded-tl-[80px] rounded-br-[80px] bg-pattern z-0"></div>
+    
+    <div className="relative w-full md:w-[50%] h-full flex justify-center items-end overflow-hidden">
+  {/* Decorative Top Right Background */}
+  <div className="absolute top-0 right-0 w-[35%] md:w-[20%] h-[35%] bg-[url('/img/bottom-banners/app-ad-vector-3.png')] bg-no-repeat bg-contain"></div>
 
-      {/* Top Right Decorative Background */}
-      <div className="absolute top-0 right-[-15] w-[30%] md:w-[20%] h-[30%] bg-[url('/img/bottom-banners/app-ad-vector-3.png')] bg-no-repeat bg-contain"></div>
+  {/* Mobile Screens */}
+  <div className="relative flex items-end">
+    {/* Back Mobile Image (Positioned Slightly Behind) */}
+    <Image
+      src="/img/bottom-banners/image-2.png"
+      alt="Small App Screen"
+      width={200}
+      height={360}
+      className="absolute left-[-40px] md:left-[-60px] bottom-0 opacity-80"
+    />
 
-      {/* Mobile Screens */}
-      <div className="relative flex items-end z-10">
-        {/* Back Mobile Image (65% Visible) */}
-        <Image
-          src="/img/bottom-banners/app-ad-ss-1.png"
-          alt="Small App Screen"
-          width={200}
-          height={400}
-          className="absolute left-[-40px] md:left-[-96px] bottom-0 opacity-80"
-        />
+    {/* Front Mobile Image (Main Display) */}
+    <Image
+      src="/img/bottom-banners/image-2.png"
+      alt="Main App Screen"
+      width={260}
+      height={300}
+      className="relative shadow-xl z-10"
+    />
 
-        {/* Front Mobile Image */}
-        <Image
-          src="/img/bottom-banners/app-ad-ss-2.png"
-          alt="Main App Screen"
-          width={220}
-          height={450}
-          className="relative shadow-xl"
-        />
-
-        {/* Discount Badge */}
-        <div className="absolute top-0 left-0 bg-red-600 text-white text-lg font-bold px-4 py-2 rounded-full shadow-md">
-          45% Off
-        </div>
-      </div>
+    {/* Discount Badge */}
+    <div className="absolute top-5 left-5 bg-red-600 text-white text-lg font-bold px-4 py-2 rounded-full shadow-md z-20">
+      45% Off
     </div>
   </div>
+</div>
+
+  </div>
 </section>
+
+
 </section>
 <section id="contact-us">
   <ContactUs/>

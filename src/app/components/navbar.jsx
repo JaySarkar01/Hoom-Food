@@ -10,7 +10,7 @@ import {
   FaTimes,
   FaUser,
 } from "react-icons/fa";
-
+import { redirect } from "next/navigation";
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -58,17 +58,15 @@ export default function Navbar() {
         setIsShopOpen(false);
       }
     };
-  
+
     if (isShopOpen) {
       document.addEventListener("click", handleClickOutside);
     } else {
       document.removeEventListener("click", handleClickOutside);
     }
-  
+
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isShopOpen]);
-  
-  
 
   return (
     <>
@@ -82,20 +80,17 @@ export default function Navbar() {
         {/* Left Section - Login/Register */}
         <div className="flex gap-2 sm:gap-3 items-center text-sm lg:text-lg">
           <FaUser className="lg:text-lg" />
-          <a href="#" className="hover:underline">
-            Login
-          </a>
+          <button className="hover:underline" onClick={()=>redirect('/authpage')}>Login</button>
+          
           <span>/</span>
-          <a href="#" className="hover:underline">
-            Register
-          </a>
+        
+          <button className="hover:underline" onClick={()=>redirect('/authpage')}>Register</button>
+        
         </div>
 
         {/* Right Section - Social Icons */}
         <div className="flex gap-3 sm:gap-5 items-center pr-3">
-          <span className="text-white lg:text-lg text-sm">
-            Follow us:
-          </span>
+          <span className="text-white lg:text-lg text-sm">Follow us:</span>
           <FaFacebook className="text-white lg:text-xl text-sm hover:text-blue-700 transition duration-300" />
           <FaTwitter className="text-white lg:text-xl text-sm hover:text-sky-400 transition duration-300" />
           <FaLinkedin className="text-white lg:text-xl text-sm hover:text-sky-100 transition duration-300" />
@@ -106,32 +101,32 @@ export default function Navbar() {
       {/* Bottom Navbar */}
       <div
         className={`fixed text-2xl shadow-lg ${
-          isVisible ? "top-[48px] md:top-[65px] lg:top-[55px] border-none" : "top-0"
+          isVisible
+            ? "top-[48px] md:top-[40px] lg:top-[55px] border-none"
+            : "top-0"
         } w-full bg-white text-black flex justify-between md:justify-between lg:justify-between items-center p-5 md:p-4 transition-all duration-450
 `}
         style={{ zIndex: 1000 }}
-        
       >
         {/* logo start  */}
-        <a href="#">
-        <span className="flex flex-col items-start">
-          <span>
-            <span className="text-3xl sm:text-3xl lg:text-3xl font-bold font-lora text-rose-600">
-              Hoom
+        <a onClick={()=>redirect('/index')}>
+          <span className="flex flex-col items-start">
+            <span>
+              <span className="text-3xl sm:text-3xl lg:text-3xl font-bold font-lora text-rose-600">
+                Hoom
+              </span>
+              <span className="text-3xl sm:text-3xl lg:text-5xl font-serif">
+                Food
+              </span>
+              <span className="text-3xl sm:text-4xl lg:text-5xl text-rose-500">
+                .
+              </span>
             </span>
-            <span className="text-3xl sm:text-3xl lg:text-5xl font-serif">
-              Food
-            </span>
-            <span className="text-3xl sm:text-4xl lg:text-5xl text-rose-500">
-              .
+            <span className="text-sm sm:text-base lg:text-xl font-mono tracking-wide ml-1">
+              Best <span className="ml-2"></span> Foods
             </span>
           </span>
-          <span className="text-sm sm:text-base lg:text-xl font-mono tracking-wide ml-1">
-            Best <span className="ml-2"></span> Foods
-          </span>
-        </span>
         </a>
-
 
         {/* logo end */}
         {/* <svg className="absolute top-24 left-0 w-full" viewBox="0 0 1440 50">
@@ -149,11 +144,11 @@ export default function Navbar() {
           ></path>
         </svg> */}
         {!isMobile && (
-          <div className="flex gap-9 items-center text-gray-700 font-raleway font-semibold">
-            <a href="#" className="hover:text-red-600 transition">
+          <div className="flex gap-9 items-center text-gray-800 font-inter">
+            <a href="index#" className="hover:text-red-600 transition">
               Home
             </a>
-            <a href="#about-section" className="hover:text-red-600 transition">
+            <a href="index#about-section" className="hover:text-red-600 transition">
               About
             </a>
 
@@ -167,7 +162,9 @@ export default function Navbar() {
               </button>
               {isShopOpen && (
                 <ul className="absolute left-0 top-full bg-white shadow-md rounded-md p-2 space-y-1 w-40">
-                  <li className="hover:text-red-600 transition" ><a href="#food-section">Foods</a></li>
+                  <li className="hover:text-red-600 transition">
+                    <a href="index#food-section">Foods</a>
+                  </li>
                   <li className="hover:text-red-600 transition">
                     Shop Details
                   </li>
@@ -177,16 +174,10 @@ export default function Navbar() {
               )}
             </div>
 
-            
-            <a href="#contact-us" className="hover:text-red-600 transition">
+            <a href="index#contact-us" className="hover:text-red-600 transition">
               Contact
             </a>
-
-            
-
-
           </div>
-          
         )}
         {isMobile && (
           <FaBars
@@ -194,15 +185,21 @@ export default function Navbar() {
             onClick={() => setIsSidebarOpen(true)}
           />
         )}
-        <div>
-<button className="bg-[#e60023] border-2 border-[#e60023] hover:bg-slate-50 
+        {!isMobile && (
+          <div>
+          <button
+            className="bg-[#e60023] border-2 border-[#e60023] hover:bg-slate-50 
   text-white hover:text-red-600 px-4 py-2 flex items-center gap-2 rounded-md 
-  transition-colors duration-300">
-  <span className="font-sans font-bold text-lg">ORDER NOW</span> 
-  <FaArrowRight className="border rounded-md text-2sm p-1 bg-slate-50 text-red-500 
-    hover:text-white hover:bg-red-500 transition-colors duration-300"/>
-</button>
-</div>
+  transition-colors duration-300"
+          >
+            <span className="font-sans font-bold text-lg">ORDER NOW</span>
+            <FaArrowRight
+              className="border rounded-md text-2sm p-1 bg-slate-50 text-red-500 
+    hover:text-white hover:bg-red-500 transition-colors duration-300"
+            />
+          </button>
+        </div>
+        )}
       </div>
 
       {/* Sidebar (Only Mobile View) */}
@@ -223,25 +220,25 @@ export default function Navbar() {
           >
             {/* Sidebar Header */}
             <div className="flex justify-between items-center">
-               {/* logo start  */}
-        <a href="#">
-        <span className="flex flex-col items-start">
-          <span>
-            <span className="text-3xl sm:text-3xl lg:text-4xl font-bold font-serif text-rose-600">
-              Hoom
-            </span>
-            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif">
-              Food
-            </span>
-            <span className="text-3xl sm:text-4xl lg:text-5xl text-rose-500">
-              .
-            </span>
-          </span>
-          <span className="text-sm sm:text-base lg:text-xl font-mono tracking-wide ml-1">
-            Best <span className="ml-2"></span> Foods
-          </span>
-        </span>
-        </a>
+              {/* logo start  */}
+              <a href="index">
+                <span className="flex flex-col items-start">
+                  <span>
+                    <span className="text-3xl sm:text-3xl lg:text-4xl font-bold font-serif text-rose-600">
+                      Hoom
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-serif">
+                      Food
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl text-rose-500">
+                      .
+                    </span>
+                  </span>
+                  <span className="text-sm sm:text-base lg:text-xl font-mono tracking-wide ml-1">
+                    Best <span className="ml-2"></span> Foods
+                  </span>
+                </span>
+              </a>
               <FaTimes
                 className="text-xl cursor-pointer"
                 onClick={() => setIsSidebarOpen(false)}
@@ -250,9 +247,15 @@ export default function Navbar() {
 
             {/* Sidebar Menu */}
             <ul className="mt-6 space-y-4">
-              <li className="hover:text-red-600 transition"><a href="#">Home</a></li>
-              <li className="hover:text-red-600 transition"><a href="#about-section">About</a></li>
-              <li className="hover:text-red-600 transition"><a href="#contact-us">Contact us</a></li>
+              <li className="hover:text-red-600 transition">
+                <a href="index#">Home</a>
+              </li>
+              <li className="hover:text-red-600 transition">
+                <a href="index#about-section">About</a>
+              </li>
+              <li className="hover:text-red-600 transition">
+                <a href="index#contact-us">Contact us</a>
+              </li>
               {/* Shop Dropdown */}
               <li>
                 <div
@@ -263,7 +266,9 @@ export default function Navbar() {
                 </div>
                 {isShopOpen && (
                   <ul className="ml-4 text-sm bg-red-100 p-2 rounded">
-                    <li className="hover:text-red-600 transition"><a href="#food-section">Foods</a></li>
+                    <li className="hover:text-red-600 transition">
+                      <a href="index#food-section">Foods</a>
+                    </li>
                     <li className="hover:text-red-600 transition">
                       Shop Details
                     </li>
@@ -272,7 +277,6 @@ export default function Navbar() {
                   </ul>
                 )}
               </li>
-
             </ul>
           </div>
         </>

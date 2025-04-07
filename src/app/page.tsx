@@ -1,8 +1,7 @@
 "use client";
-import Index from "@/app/pages/index";
+import Index from "@/app/index/page";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa";
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
-
 export default function Home() {
   return (
     <main>
