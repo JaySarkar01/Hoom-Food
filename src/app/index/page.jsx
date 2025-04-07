@@ -224,7 +224,7 @@ export default function HeroSection() {
         alt="main-image"
         width={500}
         height={600}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 85vw, 33vw"
         className="w-full h-full object-cover rounded-t-full rounded-b-lg md:rounded-l-full md:rounded-r-lg"
         priority
       />
@@ -240,64 +240,92 @@ export default function HeroSection() {
     </div>
   </div>
 
-  <section className="relative bg-gray-100 py-5 lg:px-10 md:px-16 w-full m-10 lg:ml-60 lg:mr-60">
-  <div className=" max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-10 bg-[url('/img/bottom-banners/cool-background.png')] bg-cover bg-center shadow-lg relative overflow-hidden rounded-tl-[85px] rounded-br-[85px]">
+  <section className="relative bg-gray-100 py-12 lg:px-10 px-4 w-full">
+  <div className="max-w-full lg:mx-36 flex flex-col md:flex-row items-center gap-8 bg-[url('/img/bottom-banners/cool-background.png')] bg-cover bg-center shadow-xl relative overflow-hidden rounded-tl-[85px] rounded-br-[85px] min-h-[400px]">
     {/* Left Side: Text & Buttons */}
-    <div className="absolute bottom-0 left-0 w-[40%] md:w-[20%] h-[20%] bg-[url('/img/bottom-banners/ad-vector-2.png')] bg-no-repeat bg-contain"></div>
-    <div className="flex-1 space-y-4 p-6 md:p-16 text-center md:text-left">
-      <div className="flex justify-center md:justify-start items-center gap-2 text-[#e60023] font-semibold text-lg uppercase tracking-wide">
-        <Image src="/food.png" alt="Download Icon" width={24} height={24} />
+    <div className="absolute bottom-0 left-0 w-40 h-40 md:w-48 md:h-48 bg-[url('/img/bottom-banners/ad-vector-2.png')] bg-no-repeat bg-contain opacity-90"></div>
+    
+    <div className="flex-1 space-y-6 p-8 md:p-12 lg:p-16 text-center md:text-left z-10">
+      <div className="flex justify-center md:justify-start items-center gap-3 text-[#e60023] font-semibold text-lg md:text-xl uppercase tracking-wider">
+        <Image src="/food.png" alt="Download Icon" width={28} height={28} className="w-6 h-6" />
         <span>Download App</span>
-        <Image src="/food.png" alt="Download Icon" width={24} height={24} />
+        <Image src="/food.png" alt="Download Icon" width={28} height={28} className="w-6 h-6" />
       </div>
-      <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+      
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
         Download food app <br className="hidden md:block" /> Order today!
       </h1>
-      <div className="flex flex-wrap justify-center md:justify-start gap-7 mt-6 pt-2">
-        <button className="flex items-center gap-4 px-5 py-2 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
-          <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
-          <span className="text-gray-400 text-start">Get it on <br /><strong className="text-lg lg:text-xl text-black">App Store</strong></span>
+      
+      <p className="text-gray-600 text-lg max-w-lg">
+        Get exclusive discounts and faster ordering with our mobile app.
+      </p>
+      
+      <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+        <button className="flex items-center gap-3 px-6 py-3 bg-white border-2 border-red-500 font-semibold rounded-full hover:bg-red-50 transition-all duration-300 shadow-md hover:shadow-lg">
+          <Image 
+            src="/img/bottom-banners/play-button-arrowhead.png" 
+            alt="Play Icon" 
+            width={24} 
+            height={24} 
+            className="w-5 h-5"
+          />
+          <span className="text-gray-600 text-start">
+            Get it on <br />
+            <strong className="text-lg text-black">App Store</strong>
+          </span>
         </button>
-        <button className="flex items-center gap-3 px-5 py-2 border-2 border-red-500 font-semibold rounded-full hover:bg-red-100 transition">
-          <Image src="/img/bottom-banners/play-button-arrowhead.png" alt="Play Icon" width={20} height={20} />
-          <span className="text-gray-400 text-start">Get it on <br /><strong className="text-lg lg:text-xl text-black">Google Play</strong></span>
+        
+        <button className="flex items-center gap-3 px-6 py-3 bg-white border-2 border-red-500 font-semibold rounded-full hover:bg-red-50 transition-all duration-300 shadow-md hover:shadow-lg">
+          <Image 
+            src="/img/bottom-banners/play-button-arrowhead.png" 
+            alt="Play Icon" 
+            width={24} 
+            height={24} 
+            className="w-5 h-5"
+          />
+          <span className="text-gray-600 text-start">
+            Get it on <br />
+            <strong className="text-lg text-black">Google Play</strong>
+          </span>
         </button>
       </div>
     </div>
     
-    {/* Right Side: Mobile Screens with Background */}
-    
-    <div className="relative w-full md:w-[50%] h-full flex justify-center items-end overflow-hidden">
-  {/* Decorative Top Right Background */}
-  <div className="absolute top-0 right-0 w-[35%] md:w-[20%] h-[35%] bg-[url('/img/bottom-banners/app-ad-vector-3.png')] bg-no-repeat bg-contain"></div>
+    {/* Right Side: Mobile Screens */}
+    <div className="relative w-full md:w-[45%] h-full flex justify-center items-end min-h-[300px] md:min-h-[400px]">
+      {/* Decorative Top Right Background */}
+      <div className="absolute top-0 right-0 w-40 h-40 md:w-48 md:h-48 bg-[url('/img/bottom-banners/app-ad-vector-3.png')] bg-no-repeat bg-contain opacity-90"></div>
 
-  {/* Mobile Screens */}
-  <div className="relative flex items-end">
-    {/* Back Mobile Image (Positioned Slightly Behind) */}
-    <Image
-      src="/img/bottom-banners/image-2.png"
-      alt="Small App Screen"
-      width={200}
-      height={360}
-      className="absolute left-[-40px] md:left-[-60px] bottom-0 opacity-80"
-    />
+      {/* Mobile Screens Container */}
+      <div className="relative h-full flex items-end">
+        {/* Back Mobile Image */}
+        <div className="absolute left-0 md:left-[-60px] bottom-0 w-[160px] md:w-[200px] transform -rotate-6">
+          <Image
+            src="/img/bottom-banners/image-2.png"
+            alt="Small App Screen"
+            width={200}
+            height={360}
+            className="object-contain opacity-90 drop-shadow-lg"
+          />
+        </div>
 
-    {/* Front Mobile Image (Main Display) */}
-    <Image
-      src="/img/bottom-banners/image-2.png"
-      alt="Main App Screen"
-      width={260}
-      height={300}
-      className="relative shadow-xl z-10"
-    />
-
-    {/* Discount Badge */}
-    <div className="absolute top-5 left-5 bg-red-600 text-white text-lg font-bold px-4 py-2 rounded-full shadow-md z-20">
-      45% Off
+        {/* Front Mobile Image */}
+        <div className="relative z-10 w-[180px] md:w-[240px] lg:w-[260px] transform translate-y-8 md:translate-y-12">
+          <Image
+            src="/img/bottom-banners/image-2.png"
+            alt="Main App Screen"
+            width={260}
+            height={500}
+            className="object-contain drop-shadow-2xl"
+          />
+          
+          {/* Discount Badge */}
+          <div className="absolute top-4 left-4 bg-red-600 text-white text-sm md:text-lg font-bold px-3 py-1 md:px-4 md:py-2 rounded-full shadow-lg z-20 animate-bounce">
+            45% Off
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
   </div>
 </section>
 
