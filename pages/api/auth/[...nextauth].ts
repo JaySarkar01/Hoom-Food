@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@/app/utils/userSchema";
 import connect from "@/app/utils/db";
@@ -6,8 +6,12 @@ import bcrypt from "bcryptjs";
 
 import { Account, User as AuthUser } from "next-auth";
 
+interface Credentials {
+  email: string;
+  password: string;
+}
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       id: "credentials",
@@ -16,60 +20,59 @@ export const authOptions = {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials: Credentials | undefined) {
         if (!credentials || !credentials.email || !credentials.password) {
-            throw new Error("Email and password are required!");
-          }
-          
+          throw new Error("Email and password are required!");
+        }
+
         await connect();
         try {
-          const user = await User.findOne({ email: credentials.email});
+          const user = await User.findOne({ email: credentials.email });
           if (user) {
             const isPasswordCorrect = await bcrypt.compare(
               credentials.password,
               user.password
             );
             if (isPasswordCorrect) {
-              return { id: user._id, email: user.email };
-          
+              return { id: user._id.toString(), email: user.email };
             }
           }
           return null;
-        } catch (err: any) {
-          throw new Error(err);
+        } catch (err) {
+          console.error("Authorize error:", err);
+          throw new Error("Something went wrong during authorization.");
         }
       },
     }),
-    // add more provider here 
   ],
-  callbacks:{
-    async signIn({user, account}:{user: AuthUser , account: Account}){
-      if(account?.provider == "credentials"){
+  callbacks: {
+    async signIn({ user, account }: { user: AuthUser; account: Account | null }) {
+      if (!account) return false;
+      if (account.provider === "credentials") {
         return true;
       }
-      if(account?.provider == "github"){
+      if (account.provider === "github") {
         await connect();
-        try{
-          const existingUser = await User.findOne({email: user.email});
-          if(!existingUser){
+        try {
+          const existingUser = await User.findOne({ email: user.email });
+          if (!existingUser) {
             const newUser = new User({
-              email: user.email
+              email: user.email,
             });
 
             await newUser.save();
-            return true;
-
           }
           return true;
-        }
-        catch (err){
-          console.log("Error saving user", err);
+        } catch (err) {
+          console.error("Error saving GitHub user:", err);
           return false;
         }
       }
-    }
-  }
+      return false;
+    },
+  },
 };
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
 export default handler;
